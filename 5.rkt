@@ -34,5 +34,16 @@
          ((eq? (car l) a) (add1 (occur* a (cdr l))))
          (else (occur* a (cdr l)))))
       (else (op+ (occur* a (car l)) (occur* a (cdr l)))))))
+
+(define subst*
+  (lambda (new old l)
+    (cond
+      ((null? l) null)
+      ((atom? (car l))
+       (cond
+         ((eq? (car l) old) (cons new (subst* new old (cdr l))))
+         (else (cons (car l) (subst* new old (cdr l))))))
+      (else (cons (subst* new old (car l))
+                  (subst* new old (cdr l)))))))
                 
-(provide rember* insertR* occur*)
+(provide rember* insertR* occur* subst*)

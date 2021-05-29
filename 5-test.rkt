@@ -37,3 +37,21 @@
               (bread)
               (banana brandy)))
   (check-equal? (occur* 'banana l) 5))
+
+(test-case
+    "subst*"
+  (define l '((banana)
+              (split ((((banana ice)))
+                      (cream (banana))
+                      sherbet))
+              (banana)
+              (bread)
+              (banana brandy)))
+  (check-equal? (subst* 'orange 'banana l)
+                '((orange)
+                  (split ((((orange ice)))
+                          (cream (orange))
+                          sherbet))
+                  (orange)
+                  (bread)
+                  (orange brandy))))
