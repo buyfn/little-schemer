@@ -113,3 +113,5 @@
 
 (define one?
   (lambda (n) (= n 1)))
+
+(provide op+)

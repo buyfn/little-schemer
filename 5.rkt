@@ -1,6 +1,6 @@
 #lang racket
 
-(require "1.rkt")
+(require "1.rkt" "4.rkt")
 
 (define rember*
   (lambda (a l)
@@ -24,5 +24,15 @@
          (else (cons (car l) (insertR* new old (cdr l))))))
       (else (cons (insertR* new old (car l))
                   (insertR* new old (cdr l)))))))
+
+(define occur*
+  (lambda (a l)
+    (cond
+      ((null? l) 0)
+      ((atom? (car l))
+       (cond
+         ((eq? (car l) a) (add1 (occur* a (cdr l))))
+         (else (occur* a (cdr l)))))
+      (else (op+ (occur* a (car l)) (occur* a (cdr l)))))))
                 
-(provide rember* insertR*)
+(provide rember* insertR* occur*)

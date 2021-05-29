@@ -26,3 +26,14 @@
                   (((chuck roast)))
                   (if (a) ((wood chuck roast)))
                   could chuck roast wood)))
+
+(test-case
+    "occur*"
+  (define l '((banana)
+              (split ((((banana ice)))
+                      (cream (banana))
+                      sherbet))
+              (banana)
+              (bread)
+              (banana brandy)))
+  (check-equal? (occur* 'banana l) 5))
