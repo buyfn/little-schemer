@@ -55,3 +55,19 @@
                   (orange)
                   (bread)
                   (orange brandy))))
+
+(test-case
+ "insertL*"
+ (define l '((how much (wood))
+             could
+             ((a (wood) chuck))
+             (((chuck)))
+             (if (a) ((wood chuck)))
+             could chuck wood))
+ (check-equal? (insertL* 'pecker 'chuck l)
+               '((how much (wood))
+                 could
+                 ((a (wood) pecker chuck))
+                 (((pecker chuck)))
+                 (if (a) ((wood pecker chuck)))
+                 could pecker chuck wood)))
