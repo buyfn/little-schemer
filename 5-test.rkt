@@ -71,3 +71,8 @@
                  (((pecker chuck)))
                  (if (a) ((wood pecker chuck)))
                  could pecker chuck wood)))
+
+(test-case
+ "member*"
+ (define l '((potato) (chips ((with) fish) (chips))))
+ (check-equal? (member* 'chips l) #t))
