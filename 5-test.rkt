@@ -76,3 +76,10 @@
  "member*"
  (define l '((potato) (chips ((with) fish) (chips))))
  (check-equal? (member* 'chips l) #t))
+
+(test-case
+ "leftmost"
+ (define l1 '((potato) (chips ((with) fish) (chips))))
+ (define l2 '(((hot) (tuna (and))) cheese))
+ (check-equal? (leftmost l1) 'potato)
+ (check-equal? (leftmost l2) 'hot))
