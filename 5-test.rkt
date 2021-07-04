@@ -83,3 +83,18 @@
  (define l2 '(((hot) (tuna (and))) cheese))
  (check-equal? (leftmost l1) 'potato)
  (check-equal? (leftmost l2) 'hot))
+
+(test-case
+ "eqlist?"
+ (define l1 '(strawberry ice cream))
+ (define l2 '(strawberry cream ice))
+ (define l3 '(banana ((split))))
+ (define l4 '((banana) (split)))
+ (define l5 '(beef ((sausage)) (and (soda))))
+ (define l6 '(beef ((salami)) (and (soda))))
+ (check-equal? (eqlist? l1 l1) #t)
+ (check-equal? (eqlist? l1 l2) #f)
+ (check-equal? (eqlist? l3 l4) #f)
+ (check-equal? (eqlist? l5 l6) #f)
+ (check-equal? (eqlist? l5 l5) #t)
+ )
