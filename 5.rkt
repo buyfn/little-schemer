@@ -89,4 +89,11 @@
       ((or (atom? s1) (atom? s2)) #f)
       (else (eqlist? s1 s2)))))
 
+(define rember
+  (lambda (s l)
+    (cond
+      ((null? l) null)
+      ((equal? (car l) s) (cdr l))
+      (else (cons (car l) (rember s (cdr l)))))))
+
 (provide rember* insertR* occur* subst* insertL* member* leftmost eqlist?)
