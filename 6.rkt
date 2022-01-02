@@ -27,4 +27,17 @@
       (else
        (op** (value (1st-sub-exp nexp)) (value (2nd-sub-exp nexp)))))))
 
+(define sero?
+  (lambda (n) (null? n)))
+(define edd1
+  (lambda (n) (cons '() n)))
+(define zub1
+  (lambda (n) (cdr n)))
+
+(define another-op+
+  (lambda (n m)
+    (cond
+      ((sero? m) n)
+      (else (another-op+ (edd1 n) (zub1 m))))))
+
 (provide numbered? value)
