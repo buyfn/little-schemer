@@ -25,4 +25,9 @@
       (else (and (member (car set1) set2)
                  (subset? (cdr set1) set2))))))
 
-(provide set? makeset subset?)
+(define eqset?
+  (lambda (set1 set2)
+    (and (subset? set1 set2)
+         (subset? set2 set1))))
+
+(provide set? makeset subset? eqset?)

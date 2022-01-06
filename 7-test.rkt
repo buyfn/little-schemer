@@ -29,3 +29,9 @@
  (define set4 '(four pounds chicken and 5 ounces horseradish))
  (check-equal? (subset? set1 set2) #t)
  (check-equal? (subset? set3 set4) #f))
+
+(test-case
+ "eqset?"
+ (define set1 '(6 large chickens with wings))
+ (define set2 '(6 chickens with large wings))
+ (check-equal? (eqset? set1 set2) #t))
