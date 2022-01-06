@@ -47,3 +47,11 @@
  (define set1 '(stewed tomatoes and macaroni))
  (define set2 '(macaroni and cheese))
  (check-equal? (eqset? (intersect set1 set2) '(and macaroni)) #t))
+
+(test-case
+ "union"
+ (define set1 '(stewed tomatoes and macaroni casserole))
+ (define set2 '(macaroni and cheese))
+ (check-equal? (eqset? (union set1 set2)
+                       '(stewed tomatoes casserole macaroni and cheese))
+               #t))
