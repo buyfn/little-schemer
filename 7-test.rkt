@@ -41,3 +41,9 @@
  (define set1 '(stewed tomatoes and macaroni))
  (define set2 '(macaroni and cheese))
  (check-equal? (intersect? set1 set2) #t))
+
+(test-case
+ "intersect"
+ (define set1 '(stewed tomatoes and macaroni))
+ (define set2 '(macaroni and cheese))
+ (check-equal? (eqset? (intersect set1 set2) '(and macaroni)) #t))
