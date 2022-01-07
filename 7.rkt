@@ -55,4 +55,14 @@
       (else
        (cons (car set1) (union (cdr set1) set2))))))
 
+(define difference
+  (lambda (set1 set2)
+    (cond
+      ((null? set1) '())
+      ((member? (car set1) set2)
+       (difference (cdr set1) set2))
+      (else
+       (cons (car set1)
+             (difference (cdr set1) set2))))))
+
 (provide set? makeset subset? eqset? intersect? intersect union)
