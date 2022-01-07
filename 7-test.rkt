@@ -55,3 +55,13 @@
  (check-equal? (eqset? (union set1 set2)
                        '(stewed tomatoes casserole macaroni and cheese))
                #t))
+
+(test-case
+ "intersectall"
+ (define l-set '((a b c) (c a d e) (e f g h a b)))
+ (define l-set-2 '((6 pears and)
+                   (3 peaches and 6 peppers)
+                   (8 pears and 6 plums)
+                   (and 6 prunes with some apples)))
+ (check-equal? (intersectall l-set) '(a))
+ (check-equal? (intersectall l-set-2) '(6 and)))
