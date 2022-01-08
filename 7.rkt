@@ -73,6 +73,24 @@
        (intersect (car l-set)
                   (intersectall (cdr l-set)))))))
 
+(define a-pair?
+  (lambda (x)
+    (cond
+      ((atom? x) #f)
+      ((null? x) #f)
+      ((null? (cdr x)) #f)
+      ((not (null? (cdr (cdr x)))) #f)
+      (else #t))))
+
+(define first
+  (lambda (p) (car p)))
+(define second
+  (lambda (p) (car (cdr p))))
+(define third
+  (lambda (p) (car (cdr (cdr p)))))
+(define build
+  (lambda (s1 s2) (cons s1 (cons s2 '()))))
+
 (provide
  set?
  makeset
@@ -81,4 +99,5 @@
  intersect?
  intersect
  union
- intersectall)
+ intersectall
+ a-pair?)

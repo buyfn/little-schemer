@@ -65,3 +65,16 @@
                    (and 6 prunes with some apples)))
  (check-equal? (intersectall l-set) '(a))
  (check-equal? (intersectall l-set-2) '(6 and)))
+
+(test-case
+ "a-pair?"
+ (define p1 '(pear pear))
+ (define p2 '(3 7))
+ (define p3 '((2) (pair)))
+ (define p4 '(full (house)))
+ (check-equal? (a-pair? p1) #t)
+ (check-equal? (a-pair? p2) #t)
+ (check-equal? (a-pair? p3) #t)
+ (check-equal? (a-pair? p4) #t)
+ (check-equal? (a-pair? 3) #f))
+
