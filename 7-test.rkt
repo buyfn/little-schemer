@@ -78,3 +78,11 @@
  (check-equal? (a-pair? p4) #t)
  (check-equal? (a-pair? 3) #f))
 
+(test-case
+ "fun?"
+ (define l1 '((4 3) (4 2) (7 6) (6 2) (3 4)))
+ (define l2 '((8 3) (4 2) (7 6) (6 2) (3 4)))
+ (define l3 '((d 4) (b 0) (b 9) (e 5) (g 4)))
+ (check-equal? (fun? l1) #f)
+ (check-equal? (fun? l2) #t)
+ (check-equal? (fun? l3) #f))

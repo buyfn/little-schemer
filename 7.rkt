@@ -1,6 +1,6 @@
 #lang racket
 
-(require "2.rkt" "3.rkt")
+(require "1.rkt" "2.rkt" "3.rkt")
 
 (define set?
   (lambda (lat)
@@ -91,6 +91,9 @@
 (define build
   (lambda (s1 s2) (cons s1 (cons s2 '()))))
 
+(define fun?
+  (lambda (rel) (set? (firsts rel))))
+
 (provide
  set?
  makeset
@@ -100,4 +103,5 @@
  intersect
  union
  intersectall
- a-pair?)
+ a-pair?
+ fun?)
