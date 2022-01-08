@@ -1,5 +1,12 @@
 #lang racket
 
+(define firsts
+  (lambda (l)
+    (cond
+      ((null? l) '())
+      (else
+       (cons (car (car l)) (firsts (cdr l)))))))
+
 (define subst
   (lambda (new old lat)
     (cond
@@ -47,4 +54,4 @@
        (cons new (multisubst new old (cdr lat))))
       (else (cons (car lat) (multisubst new old (cdr lat)))))))
 
-(provide multirember)
+(provide firsts multirember)
