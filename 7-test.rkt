@@ -86,3 +86,8 @@
  (check-equal? (fun? l1) #f)
  (check-equal? (fun? l2) #t)
  (check-equal? (fun? l3) #f))
+
+(test-case
+ "revrel"
+ (define rel '((8 a) (pumpkin pie) (got sick)))
+ (check-equal? (revrel rel) '((a 8) (pie pumpkin) (sick got))))

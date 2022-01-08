@@ -94,6 +94,18 @@
 (define fun?
   (lambda (rel) (set? (firsts rel))))
 
+(define revpair
+  (lambda (pair)
+    (build (second pair) (first pair))))
+
+(define revrel
+  (lambda (rel)
+    (cond
+      ((null? rel) '())
+      (else
+       (cons (revpair (car rel))
+             (revrel (cdr rel)))))))
+
 (provide
  set?
  makeset
@@ -104,4 +116,5 @@
  union
  intersectall
  a-pair?
- fun?)
+ fun?
+ revrel)
