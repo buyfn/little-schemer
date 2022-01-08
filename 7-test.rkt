@@ -91,3 +91,18 @@
  "revrel"
  (define rel '((8 a) (pumpkin pie) (got sick)))
  (check-equal? (revrel rel) '((a 8) (pie pumpkin) (sick got))))
+
+(test-case
+ "fullfun?"
+ (define f1 '((8 3) (4 2) (7 6) (6 2) (3 4)))
+ (define f2 '((8 3) (4 8) (7 6) (6 2) (3 4)))
+ (define f3 '((grape raisin)
+              (plum prune)
+              (stewed prune)))
+ (define f4 '((grape raisin)
+              (plum prune)
+              (stewed grape)))
+ (check-equal? (fullfun? f1) #f)
+ (check-equal? (fullfun? f2) #t)
+ (check-equal? (fullfun? f3) #f)
+ (check-equal? (fullfun? f4) #t))

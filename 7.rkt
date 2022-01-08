@@ -106,6 +106,16 @@
        (cons (revpair (car rel))
              (revrel (cdr rel)))))))
 
+(define seconds
+  (lambda (l) (firsts (revrel l))))
+
+(define fullfun?
+  (lambda (fun) (set? (seconds fun))))
+
+(define one-to-one?
+  (lambda (fun)
+    (fun? (revrel fun))))
+
 (provide
  set?
  makeset
@@ -117,4 +127,5 @@
  intersectall
  a-pair?
  fun?
- revrel)
+ revrel
+ fullfun?)
