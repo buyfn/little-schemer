@@ -40,4 +40,9 @@
       ((sero? m) n)
       (else (another-op+ (edd1 n) (zub1 m))))))
 
-(provide numbered? value)
+(provide
+ numbered?
+ 1st-sub-exp
+ 2nd-sub-exp
+ operator
+ value)
