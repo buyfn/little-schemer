@@ -114,4 +114,4 @@
 (define one?
   (lambda (n) (= n 1)))
 
-(provide op+ op* op** eqan?)
+(provide op+ op* op** eqan? op/)
