@@ -166,6 +166,34 @@
        (cons (evens-only* (car l))
              (evens-only* (cdr l)))))))
 
+(define evens-only*&co
+  (lambda (l col)
+    (cond
+      ((null? l)
+       (col '() 1 0))
+      ((atom? (car l))
+       (cond
+         ((even? (car l))
+          (evens-only*&co (cdr l)
+                          (lambda (evens evensProduct oddSum)
+                            (col (cons (car l) evens)
+                                 (op* (car l) evensProduct)
+                                 oddSum))))
+         (else
+          (evens-only*&co (cdr l)
+                          (lambda (evens evensProduct oddSum)
+                            (col evens
+                                 evensProduct
+                                 (op+ (car l) oddSum)))))))
+      (else
+       (evens-only*&co (car l)
+                       (lambda (evens evensProduct oddSum)
+                         (evens-only*&co (cdr l)
+                                         (lambda (dl dp ds)
+                                           (col (cons evens dl)
+                                                (op* evensProduct dp)
+                                                (op+ oddSum ds))))))))))
+
 (provide
  eq?-c
  rember-f
@@ -174,4 +202,5 @@
  multiremberT
  multirember&co
  multiinsertLR&co
- evens-only*)
+ evens-only*
+ evens-only*&co)

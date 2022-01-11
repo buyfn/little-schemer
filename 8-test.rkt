@@ -39,3 +39,12 @@
  "evens-only*"
  (check-equal? (evens-only* '((9 1 2 8) 3 10 ((9 9) 7 6) 2))
                '((2 8) 10 (() 6) 2)))
+
+(test-case
+ "evens-only*&co"
+ (define the-last-friend (lambda (newl product sum)
+                           (cons sum
+                                 (cons product newl))))
+ (define l '((9 1 2 8) 3 10 ((9 9) 7 6) 2))
+ (check-equal? (evens-only*&co l the-last-friend)
+               '(38 1920 (2 8) 10 (() 6) 2)))
