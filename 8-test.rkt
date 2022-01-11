@@ -27,3 +27,10 @@
                                '(strawberries tuna and swordfish)
                                last-friend)
                3))
+
+(test-case
+ "multiinsert&co"
+ (check-equal? (multiinsertLR&co 'salty 'fish 'chips
+                                 '(chips and fish or fish and chips)
+                                 (lambda (newlat left right) newlat))
+               '(chips salty and salty fish or salty fish and chips salty)))
