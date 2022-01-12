@@ -1,6 +1,6 @@
 #lang racket
 
-(require "4.rkt")
+(require "4.rkt" "7.rkt")
 
 (define keep-looking
   (lambda (a sorn lat)
@@ -18,4 +18,10 @@
   (lambda (x)
     (eternity x)))
 
-(provide keep-looking looking)
+(define shift
+  (lambda (pair)
+    (build (first (first pair))
+           (build (second (first pair))
+                  (second pair)))))
+
+(provide keep-looking looking shift)
