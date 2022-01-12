@@ -14,4 +14,8 @@
   (lambda (a lat)
     (keep-looking a (pick 1 lat) lat)))
 
+(define eternity
+  (lambda (x)
+    (eternity x)))
+
 (provide keep-looking looking)
