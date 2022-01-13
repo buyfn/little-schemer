@@ -116,17 +116,17 @@
   (lambda (fun)
     (fun? (revrel fun))))
 
-(provide
- set?
- makeset
- subset?
- eqset?
- intersect?
- intersect
- union
- intersectall
- a-pair?
- fun?
- revrel
- fullfun?
- build)
+(provide set?
+         makeset
+         subset?
+         eqset?
+         intersect?
+         intersect
+         union
+         intersectall
+         a-pair?
+         fun?
+         revrel
+         fullfun?
+         build
+         revpair)

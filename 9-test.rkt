@@ -15,3 +15,13 @@
  "shift"
  (check-equal? (shift '((a b) c)) '(a (b c)))
  (check-equal? (shift '((a b) (c d))) '(a (b (c d)))))
+
+(test-case
+ "weight*"
+ (check-equal? (weight* '((a b) c)) 7)
+ (check-equal? (weight* '(a (b c))) 5))
+
+(test-case
+ "shuffle"
+ (check-equal? (shuffle '(a (b c))) '(a (b c)))
+ (check-equal? (shuffle '(a b)) '(a b)))

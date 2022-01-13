@@ -1,6 +1,6 @@
 #lang racket
 
-(require "4.rkt" "7.rkt")
+(require "1.rkt" "4.rkt" "7.rkt")
 
 (define keep-looking
   (lambda (a sorn lat)
@@ -24,4 +24,31 @@
            (build (second (first pair))
                   (second pair)))))
 
-(provide keep-looking looking shift)
+(define length*
+  (lambda (pora)
+    (cond
+      ((atom? pora) 1)
+      (else (+ (length* (first pora))
+               (length* (second pora)))))))
+
+(define weight*
+  (lambda (pora)
+    (cond
+      ((atom? pora) 1)
+      (else (+ (* (weight* (first pora)) 2)
+               (weight* (second pora)))))))
+
+(define shuffle
+  (lambda (pora)
+    (cond
+      ((atom? pora) pora)
+      ((a-pair? (first pora))
+       (shuffle (revpair pora)))
+      (else (build (first pora)
+                   (shuffle (second pora)))))))
+
+(provide keep-looking
+         looking
+         shift
+         weight*
+         shuffle)
