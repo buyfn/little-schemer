@@ -47,6 +47,30 @@
       (else (build (first pora)
                    (shuffle (second pora)))))))
 
+((lambda (mk-length)
+   (mk-length mk-length))
+ (lambda (mk-length)
+   ((lambda (length)
+      (lambda (l)
+        (cond
+          ((null? l) 0)
+          (else (add1 (length (cdr l)))))))
+    (lambda (x)
+      ((mk-length mk-length) x)))))
+
+(define Y
+  (lambda (le)
+    ((lambda (f) (f f))
+     (lambda (f)
+       (le (lambda (x) ((f f) x)))))))
+
+(define factorial
+  (Y (lambda (f)
+       (lambda (x)
+         (if (= x 1)
+             1
+             (* x (f (sub1 x))))))))
+
 (provide keep-looking
          looking
          shift
