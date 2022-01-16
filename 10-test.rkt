@@ -2,16 +2,16 @@
 (require rackunit "10.rkt")
 
 (test-case
- "entry"
- (check-equal? (entry '(appetizer entree beverage)
+ "new-entry"
+ (check-equal? (new-entry '(appetizer entree beverage)
                       '(pate boeuf vin))
                '((appetizer entree beverage)
                  (pate boeuf vin)))
- (check-equal? (entry '(appetizer entree beverage)
+ (check-equal? (new-entry '(appetizer entree beverage)
                       '(beer beer beer))
                '((appetizer entree beverage)
                  (beer beer beer)))
- (check-equal? (entry '(beverage dessert)
+ (check-equal? (new-entry '(beverage dessert)
                       '((food is) (number one with us)))
                '((beverage dessert)
                  ((food is) (number one with us)))))
