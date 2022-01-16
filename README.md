@@ -1,0 +1,1 @@
+Working through "[Little Schemer](https://mitpress.mit.edu/books/little-schemer-fourth-edition)" in Racket with tests written with [RackUnit](https://docs.racket-lang.org/rackunit/)
